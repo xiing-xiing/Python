@@ -1,0 +1,4 @@
+#python正则匹配
+import re
+
+a = re.findall(r"{正则表达式}",{源文件})
