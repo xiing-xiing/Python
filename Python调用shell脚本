@@ -1,0 +1,6 @@
+#python  调用shell脚本代码
+import subprocess
+import os
+
+p = subprocess.Popen(['sh','{shell脚本名称}'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+out, err = p.communicate()
