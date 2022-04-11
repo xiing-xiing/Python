@@ -1,0 +1,10 @@
+写操作：
+file1 = open('name.txt','w')
+file1.write('诸葛亮')
+file1.close()
+
+
+读操作：
+file1 = open('name.txt','r')
+print(file1.read())
+file1.close()
