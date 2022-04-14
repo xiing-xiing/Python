@@ -1,0 +1,72 @@
+# coding=utf-8
+# This is a sample Python script.
+import subprocess
+import os
+def jia():
+    p = subprocess.Popen(['sh','jia.sh'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err = p.communicate()
+    i=0
+    a = open(r'upstream.conf','r')
+    str = a.read()
+
+    with open(r'jia','r') as file:
+        content_list = file.readlines()
+        contentall = [x.strip() for x in content_list]
+    with open(r'jia2','r') as file:
+        content_list = file.readlines()
+        contentall_two = [x.strip() for x in content_list]
+
+    while i < len(contentall_two):
+        str = str.replace(contentall[i],contentall_two[i])
+        i=i+1
+
+    b = open('upstream.conf','w')
+    b.write(str)
+
+    p = subprocess.Popen(['rm','jia'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(['rm','jia2'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+
+def qu():
+    p = subprocess.Popen(['sh','qu.sh'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err = p.communicate()
+    i=0
+    a = open(r'upstream.conf','r')
+    str = a.read()
+
+    with open(r'qu','r') as file:
+        content_list = file.readlines()
+        contentall = [x.strip() for x in content_list]
+    with open(r'qu2','r') as file:
+        content_list = file.readlines()
+        contentall_two = [x.strip() for x in content_list]
+
+    while i < len(contentall_two):
+        str = str.replace(contentall[i],contentall_two[i])
+        i=i+1
+
+    b = open('upstream.conf','w')
+    b.write(str)
+
+    p = subprocess.Popen(['rm','qu'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(['rm','qu2'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+
+
+if __name__ == '__main__':
+    ip_data = raw_input("请输入要操作的ip：")
+    os.system("sed -i 's/ip/{ip_data}/' jia.sh ".format(ip_data = ip_data))
+    os.system("sed -i 's/ip/{ip_data}/' qu.sh ".format(ip_data=ip_data))
+
+    print("注意：此脚本用于给upstream中加注释，如果要加注释，请按1，如果要去注释，请按2！")
+    data = input("现在请输入：")
+    if data == 1:
+        jia()
+    elif data == 2:
+        qu()
+    else:
+        print("输入错误")
+
+    os.system("sed -i 's/{ip_data}/ip/' jia.sh ".format(ip_data=ip_data))
+    os.system("sed -i 's/{ip_data}/ip/' qu.sh ".format(ip_data=ip_data))
+
