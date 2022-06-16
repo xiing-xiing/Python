@@ -17,7 +17,7 @@ while True:
 
 创建无序不重复元素集：set({列表})
 
-给无序不重复元素集排序：sorted({列表})
+给无序不重复元素集排序（按asc2码）：sorted({列表})
 
 补齐8位：{列表}[:8].ljust(8,"0")
 
@@ -37,6 +37,8 @@ while True:
             print(dic)
             
 连接列表：' '.join({列表})
+
+列表降序排列：{列表}.sort(reverse = True)
 
 
 
