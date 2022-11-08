@@ -1,0 +1,36 @@
+pip更换软件源：
+pip3 config set global.index-url https://repo.huaweicloud.com/repository/pypi/simple
+pip3 config list
+pip3 install -U pip
+
+pip查看已经安装的包：
+pip3 list
+
+pip卸载已经安装的库：
+pip uninstall <已经安装的库>
+
+pip更新安装的库：
+pip3 install --upgrade <已经安装的库>
+
+pip安装特定的版本：
+pip3 install package_name==1.1.2
+
+批量安装库：
+pip3 install -r e:\\requirements.txt
+requirements.txt 文件内容格式如下：
+pickleshare==0.7.5
+Pillow==8.2.0 
+prometheus-client==0.10.0 
+prompt-toolkit==3.0.18
+
+查看可升级的包：
+pip3 list -o
+
+pip升级自己：
+python -m pip install --upgrade pip
+
+临时更新pip源：
+pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package <已经安装的库>
+
+pip查看可以安装的库的版本：
+pip3 install requests== 
