@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="result" />
+		<input type="button" id="btn1" value="运行" onClick="calc()" />
+		<input type="button" id="btn2" value="清空" onClick="qingkong()" />
+		<!-- JS -->
+		<script type="text/javascript">
+			function calc(){
+				document.getElementById("result").value="{{uname}}";
+			}
+			function qingkong(){
+				document.getElementById("result").value="{{PWD}}";
+			}
+		</script>
+	</body>
+</html>
