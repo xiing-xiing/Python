@@ -2,5 +2,9 @@
 import subprocess
 import os
 
+方法1：
 p = subprocess.Popen(['sh','{shell脚本名称}'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 out, err = p.communicate()
+
+方法2：
+(status1,output1) = commands.getstatusoutput("{需要执行的命令}")
