@@ -1,0 +1,16 @@
+from flask import Flask, request
+import threading
+import requests, json
+
+app = Flask(__name__)
+lock = threading.Lock()
+
+@app.route('/', methods=['POST'])
+def save_message():
+    with lock:
+        with open('message.txt', 'a') as f:
+           f.write(message.encode('utf-8') + b'\n')
+    return 'Message saved!'
+
+if __name__ == '__main__':
+     app.run(host='{host}', port=8090)
