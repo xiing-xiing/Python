@@ -1,0 +1,11 @@
+#! -*- coding: utf-8 -*-
+import requests, json
+
+
+def send_msg(content):
+    data = json.dumps({"msgtype": "text", "text": {"content": content, "mentioned_list": [""]}})
+    r = requests.post(wx_url, data, auth=('Content-Type', 'application/json'))
+    print(r.json)
+
+wx_url = "输入你的webhook url"  
+send_msg("test")
